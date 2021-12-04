@@ -1,4 +1,4 @@
-export interface expense {
+export interface Expense {
   id: number;
   date: string;
   paymentType: string;

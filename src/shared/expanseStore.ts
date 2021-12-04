@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
-import type { expense } from "../types/expense.type";
+import type { Expense } from "../types/expense.type";
 
-const storeDefaultValue:expense[]=[ {
+const storeDefaultValue:Expense[]=[ {
     id: 1,
     date: "3rd",
     paymentType: "direct debit",
