@@ -7,6 +7,7 @@
   $: subtotal = Number(amount) * quantity;
 
   import { createExpense } from "./createExpense";
+import { getCurrentDate } from "./getCurrentDate";
   let localCreateExpense = () => {
     createExpense(
       date,
@@ -17,6 +18,15 @@
       subtotal
     );
   };
+initform()
+  function initform(){
+  paymentType="cash"
+  category="rent"
+  amount="00.00"
+  quantity=1
+  date=getCurrentDate()
+
+  }
 </script>
 
 <form on:submit|preventDefault={localCreateExpense}>

@@ -24,3 +24,5 @@ export function createExpense(
     return [...data, newExpense];
   });
 }
+
+
