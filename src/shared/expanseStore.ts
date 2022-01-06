@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 import type { Expense } from "../types/expense.type";
-
+import {tweened} from 'svelte/motion'
+import {cubicOut} from "svelte/easing";
 const storeDefaultValue:Expense[]=[ {
     id: 1,
     date: "3rd",
@@ -22,3 +23,9 @@ const store = writable(storeDefaultValue);
 
 
 export default store
+export const totalTweenStore=tweened(0,
+  {easing:cubicOut,duration:500,delay:800})
+  
+  
+  
+  

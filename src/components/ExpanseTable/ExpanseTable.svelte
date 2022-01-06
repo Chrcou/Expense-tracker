@@ -1,13 +1,15 @@
 <script lang="ts">
+  import {fade} from 'svelte/transition'
   import type { Expense } from "../../types/expense.type";
 
   export let expenses: Expense[];
   console.log("expenses", expenses);
+const  fadeOptions ={duration:11700}
 </script>
 
 <table class="table table-striped">
   <thead>
-    <tr>
+    <tr transition:fade={fadeOptions}>
       <th scope="col">#</th>
       <th scope="col">Date</th>
       <th scope="col">Payment type</th>
