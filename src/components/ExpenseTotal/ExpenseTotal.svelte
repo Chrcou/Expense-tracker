@@ -1,6 +1,7 @@
 <script lang="ts">
-import store,{totalTweenStore} from "../../shared/expanseStore";
+import store,{totalTweenStore} from "../../shared/expenseStore";
 import type { Expense } from "../../types/expense.type";
+
 // import {totalTweenStore} from "../../shared/expanseStore";
 let total=0;
 
@@ -10,6 +11,7 @@ store.subscribe((data)=>{
     total=data.reduce((acc:number,curr:Expense,)=>{
         return curr.subtotal+acc;
       },0)
+  
     totalTweenStore.set(total);
     console.log("totalTweenStore", totalTweenStore)
   

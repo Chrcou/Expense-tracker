@@ -1,5 +1,6 @@
 import type { Expense } from "../../types/expense.type";
-import store from "../../shared/expanseStore";
+import store from "../../shared/expenseStore";
+import { expenseService } from "../../shared/expenseService";
 export function createExpense(
   date: Expense["date"],
   paymentType: Expense["paymentType"],
@@ -7,12 +8,11 @@ export function createExpense(
   amount: Expense["amount"],
   quantity: Expense["quantity"],
   subtotal: Expense["subtotal"]
-): void {
-  console.log("createExpanse");
-  store.update((data: Expense[]) => {
-    let id = data.length + 1;
-    let newExpense = {
-      id,
+) {
+
+
+
+    let newExpense:Expense = {
       paymentType,
       date,
       category,
@@ -21,8 +21,11 @@ export function createExpense(
       subtotal,
     };
 
-    return [...data, newExpense];
-  });
+    expenseService.createExpense(newExpense).then((docRef) =>{
+    console.log("docRef",docRef)
+      store.update((data: Expense[]) => {
+        return  [...data, { ...newExpense, id: docRef.id }];
+      })
+    })
+  ;
 }
-
-
