@@ -26,15 +26,15 @@ expenseService
   .then((snapshot) => {
     expensesFirestore = [];
     snapshot.forEach((doc) => {
-      console.log("doc", doc);
+      //console.log("doc", doc);
       expensesFirestore = [...expensesFirestore, {...doc.data(), id: doc.id}];
     });
 
-    console.log(expensesFirestore);
+    //console.log(expensesFirestore);
     store.set(expensesFirestore);
   })
   .catch((msg) => {
-    console.log("error", msg);
+    //console.log("error", msg);
   });
 const store = writable(expensesFirestore);
 

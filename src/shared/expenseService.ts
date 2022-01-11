@@ -9,7 +9,7 @@ function readExpense() {
   return db.collection('expenses').get();
 }
 function updateExpense(expense:Expense) {
-  return db.collection('expenses').doc(expense.id).update(expense);
+  return db.collection('expenses').doc(expense.id).update({...expense});
 }
 
 function deleteExpense(expense:Expense) {

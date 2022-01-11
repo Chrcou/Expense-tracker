@@ -22,7 +22,7 @@ export function createExpense(
     };
 
     expenseService.createExpense(newExpense).then((docRef) =>{
-    console.log("docRef",docRef)
+    //console.log("docRef",docRef)
       store.update((data: Expense[]) => {
         return  [...data, { ...newExpense, id: docRef.id }];
       })
